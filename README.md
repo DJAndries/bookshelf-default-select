@@ -1,5 +1,5 @@
 # bookshelf-default-select
-
+[![npm version](https://badge.fury.io/js/bookshelf-default-select.svg)](https://badge.fury.io/js/bookshelf-default-select)
 #### Enables default column selection for Bookshelf. Inspired by visibility, but operates on a database level.
 
 Useful for large models that contain many non-essential columns.
