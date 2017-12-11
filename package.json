@@ -6,6 +6,7 @@
   "directories": {
     "example": "example"
   },
+  "files": ["dist/index.js"],
   "scripts": {
     "start": "node ./example/index",
     "build": "babel src -d dist",

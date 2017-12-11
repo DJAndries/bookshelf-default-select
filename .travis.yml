@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- '6.1'
+notifications:
+  email: false
+branches:
+  only:
+  - master
+install:
+- npm install
+script:
+- npm run build
+deploy:
+  provider: npm
+  email: darnellandries7@gmail.com
+  api_key:
+    secure: Rvvfn19ehAwJZqrpHOpskiJXkTQ0t2qxT+ulv/SLBnmvXPQqxz5zw7RcuX3KdCiKcKLOMISm13dSi2KOZt2Db79ipq4ynsqmZbNiiHci26MJ6aZrmLE5WmApxnNwNCEh4EyUWUzriq5aTp4NFSahVrtcHS3zYwiHGvFNZA5FV2bwT9utjLiH21XbBKYMKv9DIm3soHSfxJps/Q5dNPPd1gK41sSQqjysu5GmgdIP6wMb8yIrmAFoWDRsXQgmj0G5k7TzaQ17iUTh0hIMLmhxTkeUeQjKPPduYXtHEA2H//GqKaajoDDnb9NWoDn8PLtttDtiItTmyzhNuJ5Qs6qrY3Z2X0SAwXAwrhws9wZvz4C3ak4HJwr7pRJoCHnx7uYSeJ8g9w7ks1acahoBbBCRrczOpqHI4+e7ziZp9FRUu6Ur6iykpAfY2lfZPpfgLwUjb1xWMI9at4+etZthh8svW1lWg1NL2XfptWgnbmogrQaIFx3HVrZeYimXe1CVWHByT9KAk9RZiD7up1uvmA0DTKH41hwxMaZgXfrpV1Szj2Ql0rJaXdzORIyGVdSNPK7cwzc6+QhO7uGOuYgEAaa8J1jDmU50+5n57Wfygs7HIl9qLiuCJ8I0ctB6naCQv7Am+IbcLOE8PiVVd2CcyjiUUr/bghswQXGnU+azQoTmOMo=
+  on:
+    repo: DJAndries/bookshelf-default-select
+  skip_cleanup: true
