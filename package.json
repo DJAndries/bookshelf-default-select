@@ -1,12 +1,12 @@
 {
   "name": "bookshelf-default-select",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enables default column selection for Bookshelf. Inspired by visibility, but operates on a database level.",
   "main": "dist/index.js",
   "directories": {
     "example": "example"
   },
-  "files": ["dist/index.js"],
+  "files": ["dist/index.js", "README.md"],
   "scripts": {
     "start": "node ./example/index",
     "build": "babel src -d dist",
