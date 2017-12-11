@@ -1,0 +1,32 @@
+{
+  "name": "bookshelf-default-select",
+  "version": "1.0.0",
+  "description": "Enables default column selection for Bookshelf. Inspired by visibility, but operates on a database level.",
+  "main": "dist/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "start": "node ./example/index",
+    "build": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djandries/bookshelf-default-select.git"
+  },
+  "author": "Darnell Andries",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djandries/bookshelf-default-select/issues"
+  },
+  "homepage": "https://github.com/djandries/bookshelf-default-select#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bookshelf": "^0.12.0",
+    "knex": "^0.14.2",
+    "sqlite3": "^3.1.13"
+  }
+}
