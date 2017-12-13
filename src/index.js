@@ -11,7 +11,11 @@ const getRelationDefaultColumns = (instance, relation) => {
       qualifiedSubfield += '.'
     }
     qualifiedSubfield += subfield
-    currentModel = currentModel[subfield]().model.forge()
+    const target = currentModel[subfield]().model
+    if (!target) {
+      continue
+    }
+    currentModel = target.forge()
     result.push([qualifiedSubfield, currentModel.defaultColumns])
   }
   return result
