@@ -3,20 +3,32 @@ const getRelationDefaultColumns = (instance, relation) => {
   let currentModel = instance
   let qualifiedSubfield = ''
   const result = []
+  // Go to requested subfield via model relation functions, and
+  // fetch default columns of any parents of the subfield along the way
   for (const subfield of relationSplit) {
+    
     if (!currentModel[subfield]) {
-      return false
+      return result
     }
+    
     if (qualifiedSubfield.length > 0) {
       qualifiedSubfield += '.'
     }
     qualifiedSubfield += subfield
-    const target = currentModel[subfield]().model
-    if (!target) {
-      continue
+    
+    const target = currentModel[subfield]()
+    if (target.model) {
+      currentModel = target.model.forge()
+    } else if (target.relatedData && 
+      target.relatedData.target && target.relatedData.target.forge) {
+      currentModel = target.relatedData.target.forge()
+    } else {
+      break
     }
-    currentModel = target.forge()
-    result.push([qualifiedSubfield, currentModel.defaultColumns])
+    
+    if (currentModel.defaultColumns) {
+      result.push([qualifiedSubfield, currentModel.defaultColumns])
+    }
   }
   return result
 }
@@ -44,6 +56,8 @@ const processRelations = (instance, options) => {
 
     for (const subfieldDefaultColumns of relationDefaultColumns) {
       if (subfieldDefaultColumns[0] !== relation && options.withRelated[subfieldDefaultColumns[0]]) {
+        // Skip setting subfield query function, if it exists as another key within the withRelated object
+        // Since it will be processed in another iteration of the first loop
         continue
       }
       const existingQueryFunction = options.withRelated[subfieldDefaultColumns[0]]
